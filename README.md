@@ -10,7 +10,7 @@ The values are
 
 * the country tag,
 
-* the the ideology,
+* the ideology,
 
 * the date.
 
