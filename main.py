@@ -22,8 +22,8 @@ Whenever the game autosaves,the save is re-written,therefore the except case jus
 verifying and updating again.
 Whenever the process cannot be found the application closes.
 IMPORTANT NOTE:For this program to work you need to disable the saves being written in binary.
-               This is done in the settings.txt file in the Paradox Interactive folder
-             save_as_binary=no(you will find it by default as save_as_binary=yes
+               This is done in the settings.txt file found in the Paradox Interactive folder
+             save_as_binary=no(you will find it by default as save_as_binary=yes)
 I wish to recommend and cite as inspiration,and also a start guidance project 
 the EU4 equivalent of this project that can be found at:
 https://github.com/stefastra/eu4-discord-rich-presence done by stefastra.
