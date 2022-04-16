@@ -28,6 +28,8 @@ If you want to improve this program,feel free to do so.I just worked on its bare
 Whenever the game autosaves,the save is re-written,therefore the except case just waits 20 seconds before
 verifying and updating again.
 
+Whenever the process cannot be found the application closes.
+
 IMPORTANT NOTE:For this program to work you need to disable the saves being written in binary.
                This is done in the settings.txt file in the Paradox Interactive folder
              save_as_binary=no(you will find it by default as save_as_binary=yes
