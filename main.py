@@ -9,7 +9,7 @@ the hoi4.exe process.
 The array info_txt has 3 values.They are the 3 first values found in the autosave.hoi4 file.
 The values are
 * the country tag,
-* the the ideology,
+* the ideology,
 * the date.
 As long as this is running,they are shown in Discord.
 The program constantly reads and updates based on the autosave file information.
@@ -20,6 +20,7 @@ The startepoch variable counts the time the program and implicitly the game star
 If you want to improve this program,feel free to do so.I just worked on its bare minimum for the moment.
 Whenever the game autosaves,the save is re-written,therefore the except case just waits 20 seconds before
 verifying and updating again.
+Whenever the process cannot be found the application closes.
 IMPORTANT NOTE:For this program to work you need to disable the saves being written in binary.
                This is done in the settings.txt file in the Paradox Interactive folder
              save_as_binary=no(you will find it by default as save_as_binary=yes
@@ -31,10 +32,13 @@ THANK YOU!
 info_txt=['', '', '']
 count=0
 process=0
-for proc in psutil.process_iter():
+'''for proc in psutil.process_iter():
     if proc.name() == "hoi4.exe":
         print("Hoi4 detected with pid: " + str(proc.pid))
         process=int(proc.pid)
+
+if process==0:
+    exit()'''
 savefile_path = os.environ['USERPROFILE'] + "\\Documents\\Paradox Interactive\\Hearts of Iron IV\\save games\\"
 startepoch = time.time()
 startepoch=int(startepoch)
@@ -49,6 +53,16 @@ except:
 
 
 while (True):
+    for proc in psutil.process_iter():
+        if proc.name() == "hoi4.exe":
+            print("Hoi4 detected with pid: " + str(proc.pid))
+            process = int(proc.pid)
+            break
+        else:
+            process=0
+
+    if process == 0:
+        exit()
     autosave = savefile_path + "autosave.hoi4"
     try:
      f = open(autosave, "r")
@@ -76,5 +90,5 @@ while (True):
     large_image="large",
     start=startepoch
     )
-
+    
 
