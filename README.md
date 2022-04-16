@@ -28,7 +28,10 @@ If you want to improve this program,feel free to do so.I just worked on its bare
 Whenever the game autosaves,the save is re-written,therefore the except case just waits 20 seconds before
 verifying and updating again.
 
-Whenever the process cannot be found the application closes.
+The first time the app is ran,it waits in an infinite loop for the hoi4 process to start.When the process
+closes,the app closes.It uses a variable for the process number that starts at a default value of 1 and 
+a boolean variable called firstRun which becomes true when the process is detected.In the case the process
+isn't detected anymore,the app closes.
 
 IMPORTANT NOTE:For this program to work you need to disable the saves being written in binary.
                This is done in the settings.txt file found in the Paradox Interactive folder
